@@ -1,0 +1,49 @@
+{{define "index"}}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Golanta</title>
+	<meta charset="utf-8">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+	
+	<h2>Créer un personnage</h2>
+	<form action="/save" method="post">
+		<label>Nom:</label>
+		<input type="text" name="Nom" required><br>
+
+		<label>Prenom:</label>
+		<input type="text" name="Prenom" required><br>
+
+		<label>Surnom:</label>
+		<input type="text" name="Surnom"><br>
+
+		<label>Categorie:</label>
+		<input type="text" name="Categorie"><br>
+
+		<label>Date de Naissance:</label>
+		<input type="date" name="DateNaissance"><br>
+
+		<label>Type de survivant:</label>
+		<input type="text" name="Pouvoir"><br>
+        
+        <label>Sexe:</label>
+        <select name="Sexe">
+			<option value="homme">Homme</option>
+			<option value="femme">Femme</option>
+		</select><br>
+
+		<label>Image de Profil:</label>
+		<input type="file" name="ImageProfil" accept="image/*">
+
+		
+		
+
+		<input type="submit" value="Créer">
+		
+	</form>
+	
+</body>
+</html>
+{{end}}

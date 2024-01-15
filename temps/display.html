@@ -1,0 +1,21 @@
+{{define "display"}}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Golanta</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../static/css/display.css">
+    
+</head>
+<body>
+    
+    <h1>Personnages</h1>
+        {{range .}}
+            <div class="personnage">
+                <p>Nom: {{.Nom}}, Prenom: {{.Prenom}}, Categorie: {{.Categorie}}, DateNaissance: {{.DateNaissance}}, Pouvoir: {{.Pouvoir}}, Sexe: {{.Sexe}}, ImageProfil: {{.ImageProfil}}</p>
+            </div>
+        {{end}}
+</body>
+</html>
+
+{{end}}
