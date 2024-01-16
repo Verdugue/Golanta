@@ -11,6 +11,7 @@ func InitRoute() {
 	http.HandleFunc("/index", controller.Index)
 	http.HandleFunc("/save", controller.Save)
 	http.HandleFunc("/display", controller.Display)
+	http.HandleFunc("/delete", controller.DeleteCharacter)
 
 	rootDoc, _ := os.Getwd()
 	fileserver := http.FileServer(http.Dir(rootDoc + "/assets"))

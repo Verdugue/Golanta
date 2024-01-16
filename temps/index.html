@@ -1,49 +1,64 @@
 {{define "index"}}
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
 	<title>Golanta</title>
 	<meta charset="utf-8">
     <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
-	
-	<h2>Créer un personnage</h2>
-	<form action="/save" method="post">
-		<label>Nom:</label>
-		<input type="text" name="Nom" required><br>
-
-		<label>Prenom:</label>
-		<input type="text" name="Prenom" required><br>
-
-		<label>Surnom:</label>
-		<input type="text" name="Surnom"><br>
-
-		<label>Categorie:</label>
-		<input type="text" name="Categorie"><br>
-
-		<label>Date de Naissance:</label>
-		<input type="date" name="DateNaissance"><br>
-
-		<label>Type de survivant:</label>
-		<input type="text" name="Pouvoir"><br>
-        
-        <label>Sexe:</label>
-        <select name="Sexe">
-			<option value="homme">Homme</option>
-			<option value="femme">Femme</option>
-		</select><br>
-
-		<label>Image de Profil:</label>
-		<input type="file" name="ImageProfil" accept="image/*">
-
-		
-		
-
-		<input type="submit" value="Créer">
-		
-	</form>
-	
+	<header>
+		<div class="ticat">
+			<a href="/main">
+				<img src="../static/img/button.png" alt="back" class="logo">
+			</a>
+			<h1>GoLanta</h1>
+		</div>
+		<h2>Créer un personnage</h2>
+	</header>
+	<div class="info">
+		<form class="tout" action="/save" method="post">
+			
+			<div class="form">
+				<label>Nom:</label>
+				<input class="text" maxlength="30" type="text" name="Nom" required><br>
+			</div>
+			<div class="form">
+				<label>Prenom:</label>
+				<input class="text" maxlength="30" type="text" name="Prenom" required><br>
+			</div>
+			<div class="form">
+				<label>Date de Naissance:</label>
+				<input class="text" type="date" name="DateNaissance"><br>
+			</div>
+			<div class="form">
+				<label>Type de survivant:</label>
+				<input class="text" maxlength="50" type="text" name="Pouvoir"><br>
+			</div>
+			<div class="form">
+				<label>Sexe:</label>
+				<select id="select" name="Sexe">
+					<option value="homme">Homme</option>
+					<option value="femme">Femme</option>
+				</select><br>
+			</div>
+			<div class="form input-file">
+                <button type="button" onclick="showImageGallery()">Sélectionner une image</button>
+                <div id="image-gallery" style="display:none;">
+					<img src="../static/img/img1.png" onclick="selectImage(this)">
+					<img src="../static/img/img4.png" onclick="selectImage(this)">
+					<img src="../static/img/img3.png" onclick="selectImage(this)">
+					<img src="../static/img/img2.png" onclick="selectImage(this)">
+				</div>
+                <div id="selected-image-preview"></div>
+                <input value="../static/img/img1.png" type="hidden" class="input-img" name="ImageProfil" id="imageProfilField">
+            </div>
+            <div class="form">
+                <input type="submit" class="button" value="Créer">
+            </div>
+        </form>
+    </div>
+    <script src="../static/js/script.js"></script>
 </body>
 </html>
 {{end}}

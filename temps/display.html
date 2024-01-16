@@ -8,14 +8,24 @@
     
 </head>
 <body>
-    
-    <h1>Personnages</h1>
-        {{range .}}
-            <div class="personnage">
-                <p>Nom: {{.Nom}}, Prenom: {{.Prenom}}, Categorie: {{.Categorie}}, DateNaissance: {{.DateNaissance}}, Pouvoir: {{.Pouvoir}}, Sexe: {{.Sexe}}, ImageProfil: {{.ImageProfil}}</p>
+    <header class="header">
+        <h1><a href="/index" class="back-button">Retour</a> Personnages</h1>
+    </header>
+    {{range .}}
+        <div class="personnage">
+            <p>Nom: {{.Nom}}, Prenom: {{.Prenom}}, Date de naissance: {{.DateNaissance}}, Type de Survivant: {{.Pouvoir}}, Sexe: {{.Sexe}}</p>
+            <!-- Ajouter une condition pour vérifier si ImageProfil n'est pas vide -->
+            {{if .ImageProfil}}
+            <div class="img">
+               <img src="{{.ImageProfil}}" alt="Profil de {{.Nom}}">
             </div>
-        {{end}}
+                <form action="/delete" method="POST">
+                    <input type="hidden" name="nomPersonnage" value="{{.Nom}}">
+                    <button type="submit" onclick="return confirm('Confirmez-vous la suppression ?')">Supprimer</button>
+                </form>
+            {{end}}
+    </div>
+    {{end}}
 </body>
 </html>
-
 {{end}}

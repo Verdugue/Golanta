@@ -4,7 +4,6 @@ type Personne struct {
 	Nom           string `json:"Nom"`
 	Prenom        string `json:"Prenom"`
 	Surnom        string `json:"Surnom"`
-	Categorie     string `json:"Categorie"`
 	DateNaissance string `json:"DateNaissance"`
 	Pouvoir       string `json:"Pouvoir"`
 	Sexe          string `json:"Sexe"`
