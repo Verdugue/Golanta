@@ -1,6 +1,7 @@
 package database
 
 type Personne struct {
+	ID            string `json:"ID"`
 	Nom           string `json:"Nom"`
 	Prenom        string `json:"Prenom"`
 	Surnom        string `json:"Surnom"`
