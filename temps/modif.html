@@ -1,0 +1,29 @@
+{{define "modif"}}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modifier Personnage</title>
+    <link rel="stylesheet" href="../static/css/modif.css">
+    <!-- Incluez les liens vers les feuilles de style et les scripts nécessaires ici -->
+</head>
+<body>
+    <h1>Modifier Personnage</h1>
+    
+    <!-- Formulaire pour la modification -->
+    <form action="/modif" method="POST">
+        
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" value="{{.Nom}}"><br>
+        
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" name="prenom" value="{{.Prenom}}"><br>
+        
+        <label for="dateNaissance">Date de Naissance:</label>
+        <input type="text" id="dateNaissance" name="dateNaissance" value="{{.DateNaissance}}"><br>
+        
+        
+        <button type="submit">Enregistrer</button>
+    </form>
+</body>
+</html>
+{{end}}

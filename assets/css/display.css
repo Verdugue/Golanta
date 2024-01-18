@@ -1,0 +1,86 @@
+.char-ctn {
+    display: flex;
+    gap: 16px;
+}
+
+.personnage {
+    color: white;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-image: url("../img/bois.jpg");
+}
+
+.personnage-info {
+    list-style-type: none;
+    /* Retire les puces de la liste */
+    padding: 0;
+    /* Retire le padding par défaut */
+    margin: 0 0 10px 0;
+    /* Espacement en bas de la liste */
+}
+
+.personnage-info li {
+    margin-bottom: 5px;
+    /* Espacement entre les éléments de la liste */
+}
+
+.img img {
+    width: 60%;
+    /* Assure que l'image prend toute la largeur de la carte */
+    height: auto;
+    /* Garde le ratio de l'image */
+    margin-top: 10px;
+    /* Espacement au-dessus de l'image */
+}
+
+/* Pour les boutons */
+button {
+    margin-top: 10px;
+    /* Espacement au-dessus du bouton */
+}
+
+.personnage {
+    display: flex;
+    /* Utilise Flexbox pour le conteneur */
+    flex-direction: column;
+    /* Organise les enfants en colonne */
+    align-items: flex-start;
+    /* Alignement des enfants à gauche */
+    border: 1px solid black;
+    /* Bordure des cartes de personnage */
+    margin: 15px;
+    /* Espacement entre les cartes */
+    padding: 10px;
+    /* Espacement à l'intérieur des cartes */
+    box-sizing: border-box;
+    width: 12%;
+    /* Inclut padding et border dans la largeur et hauteur totale */
+
+}
+
+.personnage p {
+    margin: 0 0 10px 0;
+    /* Espacement en bas de chaque paragraphe */
+    line-height: 1.5;
+    /* Espacement entre les lignes de texte */
+}
+
+#modif{
+    width:100%;
+    height:100%;
+    color: black;
+    display: block;
+}
+
+.fck {
+    display : flex;
+    flex-direction: row;
+}
+
+.fck > div {
+    width: 100%;
+    height: 100%;
+}

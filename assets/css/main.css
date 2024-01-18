@@ -1,0 +1,59 @@
+html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image:url("../img/backs.jpg");
+    background-size:100%;
+}
+
+body {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+header {
+    margin-bottom: 50px; /* Ajustez selon l'espace que vous voulez entre le titre et les boîtes */
+}
+
+.ticat h1 {
+    display:flex;
+    justify-content:center;
+    margin: 0;
+    font-size: 48px; /* Ajustez la taille de la police comme nécessaire */
+}
+
+.container {
+    width: 80%; /* Ajustez la largeur totale du container */
+    display: flex;
+    justify-content: space-between;
+}
+
+.sous {
+    width: 45%; /* Ajustez la largeur de chaque boîte selon la largeur du container */
+    border: 1px solid black; /* Style de bordure, modifiez comme vous voulez */
+    padding: 20px; /* Espace à l'intérieur de chaque boîte */
+    box-sizing: border-box;
+}
+
+/* Si vous voulez que les boîtes aient un aspect "croquis", vous pouvez ajouter quelque chose comme ceci : */
+.sous {
+    border-radius: 8px;
+    background-color: #f9f9f9; /* Couleur de fond de la boîte, ajustez comme nécessaire */
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1); /* Ombre pour donner un effet 3D léger */
+}
+
+/* Ajoutez ceci si vous voulez que le texte des liens soit centré */
+.sous a {
+    display: block;
+    text-align: center;
+    text-decoration: none; /* Enlève le soulignement des liens */
+    color: black; /* Couleur du texte des liens */
+    margin: 10px 0; /* Espacement au-dessus et en dessous des liens */
+    font-size: 24px; /* Taille de la police des liens */
+}

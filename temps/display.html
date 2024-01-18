@@ -9,23 +9,41 @@
 </head>
 <body>
     <header class="header">
-        <h1><a href="/index" class="back-button">Retour</a> Personnages</h1>
+        <h1><a href="/main" class="back-button">Retour</a> Personnages</h1>
     </header>
-    {{range .}}
+    <div class="char-ctn">
+        {{range .}}
         <div class="personnage">
-            <p>Nom: {{.Nom}}, Prenom: {{.Prenom}}, Date de naissance: {{.DateNaissance}}, Type de Survivant: {{.Pouvoir}}, Sexe: {{.Sexe}}</p>
-            <!-- Ajouter une condition pour vérifier si ImageProfil n'est pas vide -->
-            {{if .ImageProfil}}
-            <div class="img">
-               <img src="{{.ImageProfil}}" alt="Profil de {{.Nom}}">
-            </div>
-                <form action="/delete" method="POST">
-                    <input type="hidden" name="nomPersonnage" value="{{.Nom}}">
-                    <button type="submit" onclick="return confirm('Confirmez-vous la suppression ?')">Supprimer</button>
-                </form>
-            {{end}}
+            <ul class="personnage-info">
+                <li>Nom: {{.Nom}}</li>
+                <li>Prénom: {{.Prenom}}</li>
+                <li>Date de naissance: {{.DateNaissance}}</li>
+                <li>Type de Survivant: {{.Pouvoir}}</li>
+                <li>Sexe: {{.Sexe}}</li>
+            </ul>
+                <!-- Ajouter une condition pour vérifier si ImageProfil n'est pas vide -->
+                {{if .ImageProfil}}
+                <div class="img">
+                    <img src="{{.ImageProfil}}" alt="Profil de {{.Nom}}">
+                    </div>
+                    <div class="fck">
+                        <div id="supp">
+                            <form class="boutonoption" action="/delete" method="POST">
+                                <input type="hidden" name="nomPersonnage" value="{{.Nom}}">
+                                <button type="submit" onclick="return confirm('Confirmez-vous la suppression ?')">Supprimer</button>
+                            </form>
+                        </div>
+                        <div id="modif">
+                            <form class="boutonoption" action="/modif" method="POST">
+                                <input type="hidden" name="name" value="{{.Nom}}">
+                                <button type="submit">Modifier</button>
+                            </form>
+                        </div>
+                    </div>
+                    {{end}}
+                </div>
+        {{end}}
     </div>
-    {{end}}
 </body>
 </html>
 {{end}}

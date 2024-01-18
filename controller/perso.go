@@ -71,3 +71,70 @@ func DeleteCharacter(w http.ResponseWriter, r *http.Request) {
 func Main(w http.ResponseWriter, r *http.Request) {
 	InitTemp.Temp.ExecuteTemplate(w, "main", nil)
 }
+
+func Modifier(w http.ResponseWriter, r *http.Request) {
+	// Récupérez l'ID du personnage à partir des paramètres de l'URL
+	nom := r.URL.Query().Get("Nom")
+	// Recherchez le personnage correspondant dans votre liste
+	var personnageAModifier InitStruct.Personne
+
+	fmt.Println(nom)
+
+	for _, p := range InitStruct.LstPersonne {
+		if p.Nom == nom {
+			personnageAModifier = p
+			break
+		}
+	}
+	fmt.Println(nom)
+	// Vérifiez si le personnage a été trouvé
+	if personnageAModifier.Nom == "" {
+
+		http.Error(w, "Personnage introuvable", http.StatusNotFound)
+		return
+	}
+
+	tmplData := struct {
+		Nom           string
+		Prenom        string
+		DateNaissance string
+		// Ajoutez d'autres champs ici en fonction de votre structure de données
+	}{
+		Nom:           personnageAModifier.Nom,
+		Prenom:        personnageAModifier.Prenom,
+		DateNaissance: personnageAModifier.DateNaissance,
+		// Remplacez les données fictives par les données réelles du personnage
+	}
+	fmt.Println(tmplData)
+	// Utilisez votre moteur de templates existant pour rendre la page de modification (modif.html)
+	InitTemp.Temp.ExecuteTemplate(w, "modif", tmplData)
+}
+
+func ModifierDonneesPersonnage(w http.ResponseWriter, r *http.Request) {
+	if r.Method != "POST" {
+		http.Error(w, "Méthode non autorisée", http.StatusMethodNotAllowed)
+		return
+	}
+
+	// Récupérez les données du formulaire
+	nom := r.FormValue("nom")
+	prenom := r.FormValue("prenom")
+	dateNaissance := r.FormValue("dateNaissance")
+
+	// Mettez à jour les données du personnage dans votre liste en utilisant l'ID
+	for i, p := range InitStruct.LstPersonne {
+		if p.Nom == nom { // Vous pouvez utiliser un identifiant unique à la place du nom
+			InitStruct.LstPersonne[i].Nom = nom
+			InitStruct.LstPersonne[i].Prenom = prenom
+			InitStruct.LstPersonne[i].DateNaissance = dateNaissance
+			// Mettez à jour les autres champs ici en fonction de votre structure de données
+			break
+		}
+	}
+
+	// Mettez à jour le fichier JSON avec les modifications
+	Read.EditJSON(InitStruct.LstPersonne)
+
+	// Redirigez l'utilisateur vers la page d'affichage après avoir enregistré les modifications
+	http.Redirect(w, r, "/display", http.StatusSeeOther)
+}
