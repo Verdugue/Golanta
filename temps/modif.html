@@ -10,20 +10,53 @@
     <h1>Modifier Personnage</h1>
     
     <!-- Formulaire pour la modification -->
-    <form action="/modif" method="POST">
-        
-        <label for="nom">Nom:</label>
-        <input type="text" id="nom" name="nom" value="{{.Nom}}"><br>
-        
-        <label for="prenom">Prénom:</label>
-        <input type="text" id="prenom" name="prenom" value="{{.Prenom}}"><br>
-        
-        <label for="dateNaissance">Date de Naissance:</label>
-        <input type="text" id="dateNaissance" name="dateNaissance" value="{{.DateNaissance}}"><br>
-        
-        
-        <button type="submit">Enregistrer</button>
-    </form>
+    <div class="info">
+        <!-- Formulaire pour la modification -->
+        <form action="/modif" method="POST">
+
+            <input type="hidden" name="ID" value="{{.ID}}">
+
+            <label for="Nom">Nom:</label>
+            <input type="text" id="nom" name="Nom" value="{{.Nom}}"><br>
+
+            <label for="prenom">Prénom:</label>
+            <input type="text" id="prenom" name="Prenom" value="{{.Prenom}}"><br>
+
+            <div class="form">
+                <label>Date de Naissance:</label>
+                <input class="text" type="date" name="DateNaissance" value="{{.DateNaissance}}"><br>
+            </div>
+            <div class="form">
+                <label>Type de survivant:</label>
+                <input class="text" maxlength="50" type="text" name="Pouvoir"><br>
+            </div>
+
+            <div class="form">
+                <label>Sexe:</label>
+                <select id="select" name="Sexe">
+                    <option value="homme">Homme</option>
+                    <option value="femme">Femme</option>
+                </select><br>
+            </div>
+
+            <div class="form input-file">
+                <button type="button" onclick="showImageGallery()">Sélectionner une image</button>
+                <div id="image-gallery" style="display:none;">
+					<img src="../static/img/img1.png" onclick="selectImage(this)">
+					<img src="../static/img/img4.png" onclick="selectImage(this)">
+					<img src="../static/img/img3.png" onclick="selectImage(this)">
+					<img src="../static/img/img2.png" onclick="selectImage(this)">
+				</div>
+                <div id="selected-image-preview">
+                
+				</div>
+                <input value="../static/img/img1.png" type="hidden" class="input-img" name="ImageProfil" id="imageProfilField">
+            </div>
+            <script src="../static/js/script.js"></script>
+            <button href="/display" type="submit">Enregistrer</button>
+        </form>
+    </div>
+
 </body>
 </html>
 {{end}}
