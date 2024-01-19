@@ -8,8 +8,11 @@
 </head>
 <body>
     <h1>Modifier Personnage</h1>
+<<<<<<< HEAD
     
     <!-- Formulaire pour la modification -->
+=======
+>>>>>>> 66bc5288e8c975c29dea1ad2c22c8306e7e3ab12
     <div class="info">
         <!-- Formulaire pour la modification -->
         <form action="/modif" method="POST">
@@ -18,6 +21,7 @@
 
             <label for="Nom">Nom:</label>
             <input type="text" id="nom" name="Nom" value="{{.Nom}}"><br>
+<<<<<<< HEAD
 
             <label for="prenom">Prénom:</label>
             <input type="text" id="prenom" name="Prenom" value="{{.Prenom}}"><br>
@@ -31,6 +35,17 @@
                 <input class="text" maxlength="50" type="text" name="Pouvoir"><br>
             </div>
 
+=======
+            
+            <label for="prenom">Prénom:</label>
+            <input type="text" id="prenom" name="prenom" value="{{.Prenom}}"><br>
+            
+            <div class="form">
+                <label>Date de Naissance:</label>
+                <input class="text" type="date" name="DateNaissance"><br>
+            </div>
+            
+>>>>>>> 66bc5288e8c975c29dea1ad2c22c8306e7e3ab12
             <div class="form">
                 <label>Sexe:</label>
                 <select id="select" name="Sexe">
@@ -48,15 +63,28 @@
 					<img src="../static/img/img2.png" onclick="selectImage(this)">
 				</div>
                 <div id="selected-image-preview">
+<<<<<<< HEAD
                 
 				</div>
                 <input value="../static/img/img1.png" type="hidden" class="input-img" name="ImageProfil" id="imageProfilField">
             </div>
+=======
+					
+				</div>
+                <input value="../static/img/img1.png" type="hidden" class="input-img" name="ImageProfil" id="imageProfilField">
+            </div>
+            <div class="form">
+                <input type="submit" class="button" value="Créer">
+            </div>
+>>>>>>> 66bc5288e8c975c29dea1ad2c22c8306e7e3ab12
             <script src="../static/js/script.js"></script>
             <button href="/display" type="submit">Enregistrer</button>
         </form>
     </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 66bc5288e8c975c29dea1ad2c22c8306e7e3ab12
 </body>
 </html>
 {{end}}

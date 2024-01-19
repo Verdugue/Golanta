@@ -14,6 +14,7 @@
     <div class="char-ctn">
         {{range .}}
         <div class="personnage">
+            
             <ul class="personnage-info">
                 <li>Nom: {{.Nom}}</li>
                 <li>Prénom: {{.Prenom}}</li>
@@ -37,7 +38,7 @@
                             <form class="boutonoption" action="/modif" method="POST">
                                 <input type="hidden" name="ID" value="{{.ID}}">
                                 <button type="submit">Modifier</button>
-                            </form>
+                            </form>                          
                         </div>
                     </div>
                     {{end}}
