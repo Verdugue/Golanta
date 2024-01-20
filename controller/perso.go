@@ -4,11 +4,6 @@ import (
 	"fmt"
 	"net/http"
 	"os"
-<<<<<<< HEAD
-	"piscine/backend"
-=======
-	"github.com/google/uuid"
->>>>>>> 66bc5288e8c975c29dea1ad2c22c8306e7e3ab12
 	Read "piscine/backend"
 	InitStruct "piscine/database"
 	InitTemp "piscine/temps"
@@ -32,11 +27,7 @@ func Save(w http.ResponseWriter, r *http.Request) {
 	}
 
 	newID := uuid.New().String() // Assurez-vous d'avoir importé "github.com/google/uuid"
-<<<<<<< HEAD
 	InitStruct.Section.ID = newID
-=======
-    InitStruct.Section.ID = newID
->>>>>>> 66bc5288e8c975c29dea1ad2c22c8306e7e3ab12
 	InitStruct.Section.Nom = r.FormValue("Nom")
 	InitStruct.Section.Prenom = r.FormValue("Prenom")
 	InitStruct.Section.Pouvoir = r.FormValue("Pouvoir")
@@ -86,48 +77,19 @@ func Main(w http.ResponseWriter, r *http.Request) {
 }
 
 func Modifier(w http.ResponseWriter, r *http.Request) {
-<<<<<<< HEAD
 	var personnageAModifier = InitStruct.Personne{
 		ID:            r.FormValue("ID"),
 		Nom:           r.FormValue("Nom"),
-		Prenom:        r.FormValue("prenom"),
+		Prenom:        r.FormValue("Prenom"),
 		DateNaissance: r.FormValue("DateNaissance"),
+        Pouvoir:       r.FormValue("Pouvoir"),
 		Sexe:          r.FormValue("Sexe"),
 		ImageProfil:   r.FormValue("ImageProfil"),
 	}
-	backend.UpdateJSON(personnageAModifier)
+	Read.UpdateJSON(personnageAModifier)
 
 	// Envoyez personnageAModifier directement au template
 	InitTemp.Temp.ExecuteTemplate(w, "modif", personnageAModifier)
-=======
-    id := r.FormValue("ID")
-    fmt.Println("ID reçu dans Modifier:", id) 
-
-	if id == "" {
-        fmt.Println("Aucun ID reçu")
-        http.Error(w, "Aucun ID reçu", http.StatusBadRequest)
-        return
-    }
-
-    var personnageAModifier InitStruct.Personne
-    trouve := false
-    for _, p := range InitStruct.LstPersonne {
-        if p.ID == id {
-            personnageAModifier = p
-            trouve = true
-            break
-        }
-    }
-
-    if !trouve {
-        fmt.Println("Personnage introuvable avec l'ID:", id)
-        http.Error(w, "Personnage introuvable", http.StatusNotFound)
-        return
-    }
-
-    // Envoyez personnageAModifier directement au template
-    InitTemp.Temp.ExecuteTemplate(w, "modif", personnageAModifier)
->>>>>>> 66bc5288e8c975c29dea1ad2c22c8306e7e3ab12
 }
 
 
@@ -137,7 +99,6 @@ func ModifierDonneesPersonnage(w http.ResponseWriter, r *http.Request) {
         return
     }
 
-<<<<<<< HEAD
 	// Récupérez les données du formulaire
 	id := r.FormValue("ID")
 	nom := r.FormValue("nom")
@@ -150,25 +111,10 @@ func ModifierDonneesPersonnage(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Nom reçu:", nom)
 	fmt.Println("Prénom reçu:", prenom)
 	fmt.Println("Date de Naissance reçue:", dateNaissance)
-=======
-    // Récupérez les données du formulaire
-	id := r.FormValue("ID")
-    nom := r.FormValue("nom")
-    prenom := r.FormValue("prenom")
-    dateNaissance := r.FormValue("dateNaissance")
-    Pouvoir := r.FormValue("Pouvoir")
-    Sexe := r.FormValue("Sexe")          
-    ImageProfil := r.FormValue("ImageProfil")  
-
-	fmt.Println("Nom reçu:", nom)
-    fmt.Println("Prénom reçu:", prenom)
-    fmt.Println("Date de Naissance reçue:", dateNaissance)
->>>>>>> 66bc5288e8c975c29dea1ad2c22c8306e7e3ab12
 	fmt.Println("Pouvoir reçu:", Pouvoir)
 	fmt.Println("Sexe reçu:", Sexe)
 	fmt.Println("Image de profil reçu:", ImageProfil)
 	// Vérifiez si les données sont correctes
-<<<<<<< HEAD
 
 	trouve := false
 	for i, p := range InitStruct.LstPersonne {
@@ -190,29 +136,5 @@ func ModifierDonneesPersonnage(w http.ResponseWriter, r *http.Request) {
 	if !trouve {
 		http.Error(w, "Personnage non trouvé", http.StatusNotFound)
 	}
-=======
-
-
-    trouve := false
-    for i, p := range InitStruct.LstPersonne {
-        if p.ID == id {
-            trouve = true
-            InitStruct.LstPersonne[i].Prenom = prenom
-            InitStruct.LstPersonne[i].DateNaissance = dateNaissance
-            InitStruct.LstPersonne[i].Pouvoir = Pouvoir
-            InitStruct.LstPersonne[i].Sexe = Sexe
-            InitStruct.LstPersonne[i].ImageProfil = ImageProfil
-
-            // Mettez à jour le fichier JSON et redirigez
-            Read.EditJSON(InitStruct.LstPersonne)
-            http.Redirect(w, r, "/display", http.StatusSeeOther)
-            return
-        }
-    }
-
-    if !trouve {
-        http.Error(w, "Personnage non trouvé", http.StatusNotFound)
-    }
->>>>>>> 66bc5288e8c975c29dea1ad2c22c8306e7e3ab12
 }
 

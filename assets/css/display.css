@@ -1,3 +1,19 @@
+@font-face {
+    font-family: 'MaPolice'; /* Le nom de votre police de caractères */
+    src: url('../../font/fonnt.ttf') format('truetype'); /* Spécifiez le chemin vers votre fichier TTF */
+    /* Vous pouvez également spécifier d'autres formats de police ici, comme woff, woff2, etc. */
+}
+  
+
+html {
+    height:100vh;
+    background-image:url('../img/aloha.jpg');
+    font-family: 'MaPolice', sans-serif;
+    background-repeat:no-repeat;
+    background-size:100%;
+    
+}
+
 .char-ctn {
     display: flex;
     gap: 16px;
@@ -11,6 +27,44 @@
     padding: 10px;
     box-sizing: border-box;
     background-image: url("../img/bois.jpg");
+    height:40vh;
+    font-family: 'MaPolice', sans-serif;
+    width:10px;
+}
+
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    flex-direction:centerz;
+    justify-content:space-between;
+    padding: 20px 0; /* Augmentation de la hauteur du header */
+    position: relative;
+}
+
+
+.ticat {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Aligner à gauche */
+}
+
+.logo {
+    margin-top:20px;
+    width: 60px;
+    height: 60px;
+    margin-right: 1700px;
+}
+
+h1 {
+    margin-top:-50px;
+    margin-bottom:50px;
+}
+
+h1 a {
+    color: #fff;
+    text-decoration: none;
 }
 
 .personnage-info {
@@ -83,4 +137,56 @@ button {
 .fck > div {
     width: 100%;
     height: 100%;
+}
+
+button {
+  /* Variables */
+  --button_radius: 0.75em;
+  --button_outline_color: ;
+  font-size: 17px;
+  font-weight: bold;
+  border: none;
+  text-align:start;
+  border-radius: var(--button_radius);
+  background-color:#1707016b;
+  font-family: 'MaPolice', sans-serif;
+}
+
+.button_top {
+  display: block;
+  box-sizing: border-box;
+  align-items:start;
+  text-align:start;
+  border: 2px solid var(--button_outline_color);
+  border-radius: var(--button_radius);
+  padding: 0.75em 1.5em;
+  background: var(--button_color);
+  color: var(--button_outline_color);
+  transform: translateY(-0.2em);
+  transition: transform 0.1s ease;
+  background-image: url("../img/wood.avif");
+  margin-left:-9px;
+  width:100px;
+  background-size:100%;
+  font-family:'MaPolice';
+}
+
+button:hover .button_top {
+  /* Pull the button upwards when hovered */
+  transform: translateY(-0.33em);
+  
+}
+
+button:active .button_top {
+  /* Push the button downwards when pressed */
+  transform: translateY(0);
+}
+
+
+.char-ctn {
+  background-color:#8080806b;
+  height:89vh;
+  
+  width:199vh;
+  
 }

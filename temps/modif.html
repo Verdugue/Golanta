@@ -1,18 +1,23 @@
 {{define "modif"}}
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Modifier Personnage</title>
     <link rel="stylesheet" href="../static/css/modif.css">
     <!-- Incluez les liens vers les feuilles de style et les scripts nécessaires ici -->
 </head>
+
 <body>
-    <h1>Modifier Personnage</h1>
-<<<<<<< HEAD
-    
+    <header class="header">
+        <a href="/main">
+            <img src="../static/img/button.png" alt="back" class="logo">
+        </a>
+        <div class="titre">
+            <h1>Personnages</h1>
+        </div>
+    </header>
     <!-- Formulaire pour la modification -->
-=======
->>>>>>> 66bc5288e8c975c29dea1ad2c22c8306e7e3ab12
     <div class="info">
         <!-- Formulaire pour la modification -->
         <form action="/modif" method="POST">
@@ -21,7 +26,6 @@
 
             <label for="Nom">Nom:</label>
             <input type="text" id="nom" name="Nom" value="{{.Nom}}"><br>
-<<<<<<< HEAD
 
             <label for="prenom">Prénom:</label>
             <input type="text" id="prenom" name="Prenom" value="{{.Prenom}}"><br>
@@ -32,20 +36,9 @@
             </div>
             <div class="form">
                 <label>Type de survivant:</label>
-                <input class="text" maxlength="50" type="text" name="Pouvoir"><br>
+                <input class="textSurvi" maxlength="50" type="text" name="Pouvoir" value="{{.Pouvoir}}"><br>
             </div>
 
-=======
-            
-            <label for="prenom">Prénom:</label>
-            <input type="text" id="prenom" name="prenom" value="{{.Prenom}}"><br>
-            
-            <div class="form">
-                <label>Date de Naissance:</label>
-                <input class="text" type="date" name="DateNaissance"><br>
-            </div>
-            
->>>>>>> 66bc5288e8c975c29dea1ad2c22c8306e7e3ab12
             <div class="form">
                 <label>Sexe:</label>
                 <select id="select" name="Sexe">
@@ -55,36 +48,27 @@
             </div>
 
             <div class="form input-file">
-                <button type="button" onclick="showImageGallery()">Sélectionner une image</button>
+                <button type="button" onclick="showImageGallery()"><span class="buttonselect">Selectionner une image</span></button>
                 <div id="image-gallery" style="display:none;">
-					<img src="../static/img/img1.png" onclick="selectImage(this)">
-					<img src="../static/img/img4.png" onclick="selectImage(this)">
-					<img src="../static/img/img3.png" onclick="selectImage(this)">
-					<img src="../static/img/img2.png" onclick="selectImage(this)">
-				</div>
+                    <img src="../static/img/img1.png" onclick="selectImage(this)">
+                    <img src="../static/img/img4.png" onclick="selectImage(this)">
+                    <img src="../static/img/img3.png" onclick="selectImage(this)">
+                    <img src="../static/img/img2.png" onclick="selectImage(this)">
+                </div>
                 <div id="selected-image-preview">
-<<<<<<< HEAD
-                
-				</div>
-                <input value="../static/img/img1.png" type="hidden" class="input-img" name="ImageProfil" id="imageProfilField">
+
+                </div>
+                <input value="../static/img/img1.png" type="hidden" class="input-img" name="ImageProfil"
+                    id="imageProfilField">
             </div>
-=======
-					
-				</div>
-                <input value="../static/img/img1.png" type="hidden" class="input-img" name="ImageProfil" id="imageProfilField">
-            </div>
-            <div class="form">
-                <input type="submit" class="button" value="Créer">
-            </div>
->>>>>>> 66bc5288e8c975c29dea1ad2c22c8306e7e3ab12
             <script src="../static/js/script.js"></script>
-            <button href="/display" type="submit">Enregistrer</button>
+            <div class="Force">
+            <button id="btn" href="/display" type="submit"><span class="button_top">Modifier</span></button>
+            <button id="btn" href="/display" type="submit"><span class="button_topp">Les Personnages</span></button>
+            </div>
         </form>
     </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> 66bc5288e8c975c29dea1ad2c22c8306e7e3ab12
 </body>
+
 </html>
 {{end}}

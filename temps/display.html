@@ -9,12 +9,16 @@
 </head>
 <body>
     <header class="header">
-        <h1><a href="/main" class="back-button">Retour</a> Personnages</h1>
+        <a href="/main">
+            <img src="../static/img/button.png" alt="back" class="logo">
+        </a>
+        <div class="titre">
+            <h1>Personnages</h1>
+        </div>
     </header>
     <div class="char-ctn">
         {{range .}}
         <div class="personnage">
-            
             <ul class="personnage-info">
                 <li>Nom: {{.Nom}}</li>
                 <li>Prénom: {{.Prenom}}</li>
@@ -22,27 +26,27 @@
                 <li>Type de Survivant: {{.Pouvoir}}</li>
                 <li>Sexe: {{.Sexe}}</li>
             </ul>
-                <!-- Ajouter une condition pour vérifier si ImageProfil n'est pas vide -->
-                {{if .ImageProfil}}
-                <div class="img">
-                    <img src="{{.ImageProfil}}" alt="Profil de {{.Nom}}">
-                    </div>
-                    <div class="fck">
-                        <div id="supp">
-                            <form class="boutonoption" action="/delete" method="POST">
-                                <input type="hidden" name="nomPersonnage" value="{{.Nom}}">
-                                <button type="submit" onclick="return confirm('Confirmez-vous la suppression ?')">Supprimer</button>
-                            </form>
-                        </div>
-                        <div id="modif">
-                            <form class="boutonoption" action="/modif" method="POST">
-                                <input type="hidden" name="ID" value="{{.ID}}">
-                                <button type="submit">Modifier</button>
-                            </form>                          
-                        </div>
-                    </div>
-                    {{end}}
+            <!-- Ajouter une condition pour vérifier si ImageProfil n'est pas vide -->
+            {{if .ImageProfil}}
+            <div class="img">
+                <img src="{{.ImageProfil}}" alt="Profil de {{.Nom}}">
+            </div>
+            <div class="fck">
+                <div id="supp">
+                    <form class="boutonoption" action="/delete" method="POST">
+                        <input type="hidden" name="nomPersonnage" value="{{.Nom}}">
+                        <button type="submit" class="textyesay" onclick="return confirm('Confirmez-vous la suppression ?')"><span class="button_top">Delete</span></button>
+                    </form>
                 </div>
+                <div id="modif">
+                    <form class="boutonoption" action="/modif" method="POST">
+                        <input type="hidden" name="ID" value="{{.ID}}">
+                        <button type="submit"><span class="button_top">Modify</span></button>
+                    </form>
+                </div>
+            </div>
+            {{end}}
+        </div>
         {{end}}
     </div>
 </body>
